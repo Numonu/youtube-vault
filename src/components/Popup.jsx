@@ -5,7 +5,7 @@ export function Popup() {
 		<div className={styles.container}>
 			<Action fontAwesome="fa-solid fa-pencil" content="Edit title" />
 			<Action fontAwesome="fa-solid fa-pencil" content="Edit description" />
-			<Action fontAwesome="fa-solid fa-pencil" content="Delete video" />
+			<Action fontAwesome="fa-solid fa-trash" content="Delete video" />
 		</div>
 	);
 }
