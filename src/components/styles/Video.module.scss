@@ -1,0 +1,63 @@
+//Size variables====>
+
+$relative-size : 1em;
+$font-size : calc($relative-size + .8em);
+
+//Desing variables====>
+
+$container-bg : #202020;
+$dotts-bg : rgb(58, 58, 58);
+$font-color : whitesmoke;
+$font-weight : normal;
+
+
+.container{
+    width: 100%;
+    padding: $relative-size;
+    display: flex;
+    flex-direction: column;
+    gap: $relative-size;
+
+    border-radius: $relative-size;
+
+    color: $font-color;
+    background-color: $container-bg;
+}
+.video{
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+.about{
+    display: flex;
+    justify-content: space-between;
+    gap: $relative-size;
+}
+.title{
+    font-size: $font-size;
+    font-weight: $font-weight;
+    margin-bottom: .5rem;
+}
+.description{
+    font-size: calc($font-size / 2);
+    font-weight: $font-weight;
+}
+.dottsBox{
+    position: relative;
+    width: 2.2rem;
+    aspect-ratio: 1/1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-color .2s ease;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $dotts-bg;
+    }
+}
+.dotts{
+    font-size: calc($relative-size + .5em);
+}

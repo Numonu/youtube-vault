@@ -1,0 +1,32 @@
+//Size variables====>
+
+$relative-size : 1em;
+$font-size : $relative-size;
+
+//Desing variables====>
+
+$font-color : whitesmoke;
+$bg-color : rgb(44, 44, 44);
+$bg-color-hover : rgb(95, 95, 95);
+
+
+
+.container{
+    padding: $relative-size;
+    display: flex;
+    align-items: center;
+    gap: calc($relative-size / 2);
+
+    &:hover{
+        background-color: $bg-color-hover;
+    }
+}
+.icon{
+    font-size: $font-size;
+    color: $font-color;
+}
+.text{
+    width: max-content;
+    font-size: $font-size;
+    color: $font-color;
+}

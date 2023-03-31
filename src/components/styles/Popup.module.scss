@@ -1,0 +1,24 @@
+//Size variables====>
+
+$relative-size : 1em;
+$font-size : $relative-size;
+
+//Desing variables====>
+
+$font-color : whitesmoke;
+$bg-color : rgb(44, 44, 44);
+
+
+
+.container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-97%) translateY(97%);
+
+    min-width: calc($relative-size * 10);
+    display: flex;
+    flex-direction: column;
+    
+    background-color: $bg-color;
+}

@@ -1,0 +1,7 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr); 
+    gap: 1rem;
+    //setup size in childs (childs use em's)
+    font-size: 14px;
+}
