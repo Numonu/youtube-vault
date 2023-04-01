@@ -29,13 +29,14 @@ export function App() {
 	function changeCollectionFocus(order) {
 		setCollectionFocus(order);
 	}
-    function editVideoTitle(content , order){
+    function updateVideoData(order , title , description){
         dispatch({
-            type : "edit-video-title",
+            type : "update-video-data",
             value : {
                 collectionFocus,
                 order,
-                content
+                title,
+                description
             }
         })
     }
@@ -56,7 +57,7 @@ export function App() {
 			<Layout.Body>
 				<Grid>
 					<AppContext.Provider value={{
-                        editVideoTitle
+                        updateVideoData
                     }}>
                         {videos}
                     </AppContext.Provider>

@@ -1,19 +1,12 @@
-import { useState } from "react";
+import { useVideo } from "../hooks/useVideo";
 import { getVideoCode } from "../javascript/getVideoCode";
 import { Popup } from "./Popup";
 import styles from "./styles/Video.module.scss";
 
 export function Video({ order, videoLink, title, description }) {
-	const [titleLocal, setTitleLocal] = useState(title);
-	const [descriptionLocal, setDescriptionLocal] = useState(description);
 
-	const [normalMode, setNormalMode] = useState(false);
-	const [showActions, setShowActions] = useState(false);
-
+	const video = useVideo({ title, description });
 	const videoCode = getVideoCode(videoLink);
-
-	const toogleActions = () => setShowActions(!showActions);
-	const toogleMode = () => setNormalMode(!normalMode);
 
 	return (
 		<div className={styles.container}>
@@ -25,7 +18,7 @@ export function Video({ order, videoLink, title, description }) {
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				allowFullScreen
 			></iframe>
-			{normalMode ? (
+			{video.showEditing ? (
 				<div className={styles.about}>
 					<div>
 						<h1 className={styles.title}>{title}</h1>
@@ -34,15 +27,15 @@ export function Video({ order, videoLink, title, description }) {
 					<div>
 						<div
 							className={styles.dottsBox}
-							onClick={toogleActions}
+							onClick={video.toogleActions}
 						>
 							<i
 								className={`${styles.dotts} fa-solid fa-ellipsis-vertical`}
 							></i>
-							{showActions && (
+							{video.showActions && (
 								<Popup>
 									<Popup.Action
-										onClick={toogleMode}
+										onClick={video.toogleMode}
 										fontAwesome="fa-solid fa-pencil"
 										content="Edit content"
 									/>
@@ -61,28 +54,36 @@ export function Video({ order, videoLink, title, description }) {
 						<input
 							type="text"
 							className={styles.inputTitle}
-							value={titleLocal}
-							onChange={e => setTitleLocal(e.target.value)}
+							value={video.titleLocal}
+							onChange={(e) =>
+								video.setTitleLocal(e.target.value)
+							}
 						/>
 						<input
 							type="text"
 							className={styles.inputDescription}
-							value={descriptionLocal}
-							onChange={e => setDescriptionLocal(e.target.value)}
+							value={video.descriptionLocal}
+							onChange={(e) =>
+								video.setDescriptionLocal(e.target.value)
+							}
 						/>
 					</div>
 					<div>
 						<div
 							className={styles.dottsBox}
-							onClick={toogleActions}
+							onClick={video.toogleActions}
 						>
 							<i
 								className={`${styles.dotts} fa-solid fa-ellipsis-vertical`}
 							></i>
-							{showActions && (
+							{video.showActions && (
 								<Popup>
 									<Popup.Action
-										onClick={toogleMode}
+										onClick={() => video.updateVideoData(
+											order,
+											video.titleLocal,
+											video.descriptionLocal
+										)}
 										fontAwesome="fa-solid fa-pencil"
 										content="Save"
 									/>
