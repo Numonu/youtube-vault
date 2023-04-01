@@ -1,5 +1,8 @@
 .cascade{
+    padding: .5rem;
+
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    //setup size in childs (childs use em's)
+    font-size: 16px;
 }

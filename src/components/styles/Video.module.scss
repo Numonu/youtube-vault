@@ -1,14 +1,17 @@
 //Size variables====>
 
 $relative-size : 1em;
-$font-size : calc($relative-size + .8em);
+$font-size : calc($relative-size + .3em);
 
 //Desing variables====>
 
 $container-bg : #202020;
 $dotts-bg : rgb(58, 58, 58);
 $font-color : whitesmoke;
+$description-font-color : rgb(190, 190, 190);
 $font-weight : normal;
+
+
 
 .container{
     width: 100%;
@@ -34,11 +37,15 @@ $font-weight : normal;
 .title{
     font-size: $font-size;
     font-weight: $font-weight;
+    color: $font-color;
+
     margin-bottom: .5rem;
 }
 .description{
-    font-size: calc($font-size / 2);
+    font-size: calc($font-size / 1.3);
     font-weight: $font-weight;
+    color: $description-font-color;
+
 }
 .dottsBox{
     position: relative;
@@ -59,4 +66,5 @@ $font-weight : normal;
 }
 .dotts{
     font-size: calc($relative-size + .5em);
+    color: $font-color;
 }

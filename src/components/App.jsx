@@ -1,32 +1,22 @@
+import { useReducer } from "react";
+import { exampleData } from "../database/data";
+import { AppReducer } from "../Reducers/AppReducer";
 import { Cascade } from "./Cascade";
 import { Grid } from "./Grid";
 import { Layout } from "./Layout";
 
-const exampleData = [
-	{
-		collection: "Mi coleccion de videos",
-		videos: [
-			{
-				title: "Noticias del mundo",
-				description: "Una descripcion acertada",
-				link: "https://google.com",
-			},
-			{
-				title: "Info sobre economia",
-				description: "Aqui se excplican temas economicos",
-				link: "https://google.com",
-			},
-		],
-	},
-];
 
 export function App() {
+    const [data , dispatch] = useReducer(AppReducer() , [...exampleData]);
+
+    const collections = data.map(e => <Cascade.Collection key={e.collection} title={e.collection}/>);
+
 	return (
 		<Layout>
 			<Layout.Nav>Soy el navegador</Layout.Nav>
 			<Layout.Aside>
                 <Cascade>
-                    <Cascade.Collection title={"Super Collecion"}/>
+                    {collections}
                 </Cascade>
             </Layout.Aside>
 			<Layout.Body>
