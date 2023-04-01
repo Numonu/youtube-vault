@@ -68,3 +68,23 @@ $font-weight : normal;
     font-size: calc($relative-size + .5em);
     color: $font-color;
 }
+@mixin input(){
+    width: 100%;
+    padding: .2em;
+
+    background-color: $dotts-bg;
+    color: $font-color;
+
+    caret-color: cyan;
+    border: none;
+    border-bottom: 1px solid cyan;
+    outline: none;
+}
+.inputTitle{
+    @include input();
+    font-size: $font-size
+}
+.inputDescription{
+    @include input();
+    font-size: calc($font-size / 1.3);
+}
