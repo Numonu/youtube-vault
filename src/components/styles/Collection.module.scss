@@ -1,23 +1,28 @@
-.collection{
-    padding: .7em;
+.collection {
+	padding: 0.7em;
 
-    display: flex;
-    gap: 1em;
+	display: flex;
+	gap: 1em;
 
-    border-radius: .3em;
-    &:hover{
-        background-color: #292929;
-    }
+	border-radius: 0.3em;
+	&:hover {
+		background-color: #292929;
+	}
 }
-.title{
-    font-size: 1em;
-    font-weight: normal;
-    color: whitesmoke;
+.title {
+	font-size: 1em;
+	font-weight: normal;
+	color: whitesmoke;
 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
-.icon{
-    color: whitesmoke;
+.icon {
+	color: whitesmoke;
+}
+
+//function event-->
+.target {
+	border: 1px solid cyan;
 }
