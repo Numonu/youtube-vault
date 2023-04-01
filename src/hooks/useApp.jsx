@@ -1,4 +1,6 @@
 import { useState , useReducer } from "react";
+import { Cascade } from "../components/Cascade";
+import { Grid } from "../components/Grid";
 import { exampleData } from "../database/data";
 import { AppReducer } from "../Reducers/AppReducer";
 
@@ -36,6 +38,7 @@ export function useApp(){
     return{
         collections,
         videos,
+        collectionFocus,
         changeCollectionFocus,
         updateVideoData
     }
