@@ -1,3 +1,11 @@
+//Desing variables====>
+
+$title-color : whitesmoke;
+
+$container-bg : #292929;
+$border-color: rgb(132, 0, 255);
+
+
 .collection {
 	padding: 0.7em;
 
@@ -6,23 +14,23 @@
 
 	border-radius: 0.3em;
 	&:hover {
-		background-color: #292929;
+		background-color: $container-bg;
 	}
 }
 .title {
 	font-size: 1em;
 	font-weight: normal;
-	color: whitesmoke;
+	color: $title-color;
 
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 .icon {
-	color: whitesmoke;
+	color: $title-color;
 }
 
 //function event-->
 .target {
-	border: 1px solid cyan;
+	border: 1px solid $border-color;
 }

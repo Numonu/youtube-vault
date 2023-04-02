@@ -1,13 +1,6 @@
-//Size variables====>
-
-$relative-size : 1em;
-$font-size : $relative-size;
-
 //Desing variables====>
 
-$font-color : whitesmoke;
 $bg-color : rgb(44, 44, 44);
-
 
 
 .container{
@@ -16,7 +9,7 @@ $bg-color : rgb(44, 44, 44);
     left: 0;
     transform: translateX(-97%) translateY(97%);
 
-    min-width: calc($relative-size * 10);
+    min-width: 10em;
     display: flex;
     flex-direction: column;
     

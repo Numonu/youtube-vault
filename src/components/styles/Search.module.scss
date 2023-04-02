@@ -1,0 +1,31 @@
+//Desing variables====>
+
+$title-color : whitesmoke;
+
+$container-bg : #313131;
+$border-color: rgb(132, 0, 255);
+
+.search{
+    display: flex;
+    padding: 1em;
+}
+.input{
+    padding: 1em;
+    flex: 1 1 90%;
+
+    color: $title-color;
+    caret-color: $border-color;
+    border-bottom: 1px solid $border-color;
+    outline: none;
+
+    background-color: $container-bg;
+}
+.button{
+    flex: 1 1 auto;
+    
+    color: $title-color;
+    font-weight: bold;
+
+    background-color: $border-color;
+    cursor: pointer;
+}

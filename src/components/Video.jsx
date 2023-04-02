@@ -4,9 +4,11 @@ import { Popup } from "./Popup";
 import styles from "./styles/Video.module.scss";
 
 export function Video({ order, videoLink, title, description }) {
-	const video = useVideo({ title, description });
+	const video = useVideo({ order, title, description });
 	const videoCode = getVideoCode(videoLink);
-
+	
+	if(!videoCode)return null;
+	
 	return (
 		<div className={styles.container}>
 			<iframe
@@ -18,92 +20,19 @@ export function Video({ order, videoLink, title, description }) {
 				allowFullScreen
 			></iframe>
 			{video.showEditing ? (
-				<div className={styles.about}>
-					<div>
-						<h1 className={styles.title}>{title}</h1>
-						<p className={styles.description}>{description}</p>
-					</div>
-					<div>
-						<div
-							className={styles.dottsBox}
-							onClick={video.toogleActions}
-						>
-							<i
-								className={`${styles.dotts} fa-solid fa-ellipsis-vertical`}
-							></i>
-							{video.showActions && (
-								<Popup>
-									<Popup.Action
-										onClick={video.toogleMode}
-										fontAwesome="fa-solid fa-pencil"
-										content="Edit content"
-									/>
-									<Popup.Action
-										fontAwesome="fa-solid fa-trash"
-										content="Delete video"
-									/>
-								</Popup>
-							)}
-						</div>
-					</div>
-				</div>
+				<EditingMode video={video} />
 			) : (
-				<div className={styles.about}>
-					<div>
-						<input
-							type="text"
-							className={styles.inputTitle}
-							value={video.titleLocal}
-							onChange={(e) =>
-								video.setTitleLocal(e.target.value)
-							}
-						/>
-						<input
-							type="text"
-							className={styles.inputDescription}
-							value={video.descriptionLocal}
-							onChange={(e) =>
-								video.setDescriptionLocal(e.target.value)
-							}
-						/>
-					</div>
-					<div>
-						<div
-							className={styles.dottsBox}
-							onClick={video.toogleActions}
-						>
-							<i
-								className={`${styles.dotts} fa-solid fa-ellipsis-vertical`}
-							></i>
-							{video.showActions && (
-								<Popup>
-									<Popup.Action
-										onClick={() =>
-											video.updateVideoData(
-												order,
-												video.titleLocal,
-												video.descriptionLocal
-											)
-										}
-										fontAwesome="fa-solid fa-pencil"
-										content="Save"
-									/>
-									<Popup.Action
-										fontAwesome="fa-solid fa-trash"
-										content="Restart"
-									/>
-								</Popup>
-							)}
-						</div>
-					</div>
-				</div>
+				<NormalMode
+					video={video}
+					title={title}
+					description={description}
+				/>
 			)}
 		</div>
 	);
 }
 
-function NormalMode() {
-	const video = useVideo();
+function NormalMode({ video, title, description }) {
 	return (
 		<div className={styles.about}>
 			<div>
@@ -123,6 +52,7 @@ function NormalMode() {
 								content="Edit content"
 							/>
 							<Popup.Action
+								onClick={video.deleteVideo}
 								fontAwesome="fa-solid fa-trash"
 								content="Delete video"
 							/>
@@ -134,8 +64,7 @@ function NormalMode() {
 	);
 }
 
-function EditingMode() {
-	const video = useVideo();
+function EditingMode({ video }) {
 	return (
 		<div className={styles.about}>
 			<div>
@@ -160,13 +89,7 @@ function EditingMode() {
 					{video.showActions && (
 						<Popup>
 							<Popup.Action
-								onClick={() =>
-									video.updateVideoData(
-										order,
-										video.titleLocal,
-										video.descriptionLocal
-									)
-								}
+								onClick={video.updateVideoData}
 								fontAwesome="fa-solid fa-pencil"
 								content="Save"
 							/>
