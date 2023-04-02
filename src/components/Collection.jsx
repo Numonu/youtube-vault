@@ -10,8 +10,16 @@ export function Collection({ order, title }) {
 			className={`${styles.collection} ${isTarget && styles.target}`}
 			onClick={() => fromContext.changeCollectionFocus(order)}
 		>
-			<i className={`${styles.icon} fa-regular fa-folder`}></i>
+			<i className={`${styles.folder} fa-regular fa-folder`}></i>
 			<h1 className={styles.title}>{title}</h1>
+			<i
+				className={`${styles.delete} fa-solid fa-delete-left`}
+				onClick={(e) => {
+					e.stopPropagation();
+					alert("Se eliminara la colleccion en el orden" + order);
+					fromContext.deleteCollection(order)
+				}}
+			></i>
 		</div>
 	);
 }

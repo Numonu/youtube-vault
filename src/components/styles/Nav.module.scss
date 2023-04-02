@@ -1,10 +1,11 @@
+@use "./modules/_design" as design;
 .nav{
     padding: .5em;
 
     grid-area: nav;
-    background-color: #2e2e2e;
+    background-color: design.$tertiary-bg;
     
     font-size: 1.6em;
     font-weight: bold;
-    color: whitesmoke;
+    color: design.$primary-font;
 }

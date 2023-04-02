@@ -1,9 +1,4 @@
-//Desing variables====>
-
-$title-color : whitesmoke;
-
-$container-bg : #313131;
-$border-color: rgb(132, 0, 255);
+@use "./modules/_design" as design;
 
 .search{
     display: flex;
@@ -13,19 +8,19 @@ $border-color: rgb(132, 0, 255);
     padding: 1em;
     flex: 1 1 90%;
 
-    color: $title-color;
-    caret-color: $border-color;
-    border-bottom: 1px solid $border-color;
+    color: design.$primary-font;
+    caret-color: design.$primary-special;
+    border-bottom: 1px solid design.$primary-special;
     outline: none;
 
-    background-color: $container-bg;
+    background-color: design.$tertiary-bg;
 }
 .button{
     flex: 1 1 auto;
     
-    color: $title-color;
+    color: design.$primary-font;
     font-weight: bold;
 
-    background-color: $border-color;
+    background-color: design.$primary-special;
     cursor: pointer;
 }

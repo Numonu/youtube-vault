@@ -11,9 +11,13 @@ export function Create() {
 				type="text"
 				className={styles.input}
 				placeholder="Collection Title"
+				value={value}
 				onChange={(e) => setValue(e.target.value)}
 			/>
-			<button className={styles.button} onClick={() => fromContext.createCollection(value)}>
+			<button className={styles.button} onClick={() => {
+				setValue("");
+				fromContext.createCollection(value)
+			}}>
 				Add Collection
 			</button>
 		</div>

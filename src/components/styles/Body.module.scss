@@ -1,7 +1,8 @@
+@use "./modules/_design" as design;
 .body{
     grid-area: body;
     overflow-y: auto;
-    background-color: rgb(19, 19, 19);
+    background-color: design.$primary-bg;
     //setup size in childs (childs use em's)
     font-size: 14px;
 }

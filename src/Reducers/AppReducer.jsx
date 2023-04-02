@@ -28,6 +28,9 @@ export function AppReducer() {
 					videos : []
 				});
 				break;
+			case "delete-collection":
+				draft.splice(action.value.order , 1);
+				break;
 			default:
 				throw new Error(`${action.type} is not a valid action`);
 		}

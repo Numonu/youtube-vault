@@ -1,5 +1,7 @@
+@use "./modules/_design" as design;
+
 .aside{
     grid-area: aside;
     overflow-y: auto;
-    background-color: rgb(31, 31, 31);
+    background-color: design.$secondary-bg;
 }

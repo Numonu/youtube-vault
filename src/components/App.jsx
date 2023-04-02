@@ -17,13 +17,14 @@ export function App() {
 		changeCollectionFocus,
 		addNewVideoInCollection,
 		deleteVideo,
-		createCollection
+		createCollection,
+		deleteCollection
 	} = useApp();
 
 	return (
 		<Layout>
 			<Layout.Nav>
-				Youtube Vault
+				Youtube Vault<span style={{color:"red"}}> .</span>
 			</Layout.Nav>
 			<Layout.Aside>
 				<Cascade>
@@ -31,7 +32,8 @@ export function App() {
 						value={{
 							collectionFocus,
 							changeCollectionFocus,
-							createCollection
+							createCollection,
+							deleteCollection
 						}}
 					>
 						<Create/>

@@ -1,10 +1,4 @@
-//Desing variables====>
-
-$title-color : whitesmoke;
-
-$container-bg : #292929;
-$border-color: rgb(132, 0, 255);
-
+@use "./modules/_design" as design;
 
 .collection {
 	padding: 0.7em;
@@ -14,23 +8,28 @@ $border-color: rgb(132, 0, 255);
 
 	border-radius: 0.3em;
 	&:hover {
-		background-color: $container-bg;
+		background-color: design.$tertiary-bg;
 	}
 }
 .title {
 	font-size: 1em;
 	font-weight: normal;
-	color: $title-color;
+	color: design.$primary-font;
 
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-.icon {
-	color: $title-color;
+.folder {
+	color: design.$primary-font;
+}
+.delete {
+	margin-left: auto;
+	color: design.$secondary-font;
+	cursor: pointer;
 }
 
 //function event-->
 .target {
-	border: 1px solid $border-color;
+	border: 1px solid design.$primary-special;
 }

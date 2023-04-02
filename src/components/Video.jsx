@@ -93,10 +93,6 @@ function EditingMode({ video }) {
 								fontAwesome="fa-solid fa-pencil"
 								content="Save"
 							/>
-							<Popup.Action
-								fontAwesome="fa-solid fa-trash"
-								content="Restart"
-							/>
 						</Popup>
 					)}
 				</div>

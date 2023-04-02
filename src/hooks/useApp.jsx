@@ -7,11 +7,12 @@ import { AppReducer } from "../Reducers/AppReducer";
 export function useApp() {
 	const [data, dispatch] = useReducer(AppReducer(), [...exampleData]);
 	const [collectionFocus, setCollectionFocus] = useState(0);
+	console.log("Estoy enfocado en el orden : " , collectionFocus);
 
-	const collections = data.map((e, i) => (
+	const collections = data[0] &&  data.map((e, i) => (
 		<Cascade.Collection order={i} key={e.id} title={e.collection} />
 	));
-	const videos = data[collectionFocus].videos.map((e, i) => (
+	const videos = data[collectionFocus] && data[collectionFocus].videos.map((e, i) => (
 		<Grid.Video
 			order={i}
 			key={e.id}
@@ -61,6 +62,14 @@ export function useApp() {
 			},
 		});
 	}
+	function deleteCollection(order){
+		dispatch({
+			type : "delete-collection",
+			value : {
+				order
+			}
+		})
+	}
 
 	return {
 		collections,
@@ -71,5 +80,6 @@ export function useApp() {
 		addNewVideoInCollection,
 		deleteVideo,
 		createCollection,
+		deleteCollection
 	};
 }

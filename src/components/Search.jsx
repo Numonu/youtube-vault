@@ -11,12 +11,16 @@ export function Search() {
 			<input
 				className={styles.input}
 				type="text"
+				value={link}
 				placeholder="Paste youtube video link..."
 				onChange={(e) => setLink(e.target.value)}
 			/>
 			<button
 				className={styles.button}
-				onClick={() => fromProvider.addNewVideoInCollection(link)}
+				onClick={() => {
+					setLink("");
+					fromProvider.addNewVideoInCollection(link)
+				}}
 			>
 				Add Video
 			</button>

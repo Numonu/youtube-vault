@@ -1,13 +1,4 @@
-//Desing variables====>
-
-$title-color : whitesmoke;
-$description-color : rgb(190, 190, 190);
-
-$container-bg : #202020;
-$dotts-bg : rgb(58, 58, 58);
-
-
-
+@use "./modules/_design" as design;
 
 .container{
     width: 100%;
@@ -18,7 +9,7 @@ $dotts-bg : rgb(58, 58, 58);
     flex-direction: column;
     gap: 1em;
 
-    background-color: $container-bg;
+    background-color: design.$secondary-bg;
 }
 .video{
     width: 100%;
@@ -32,14 +23,14 @@ $dotts-bg : rgb(58, 58, 58);
 .title{
     font-size: 1.3em;
     font-weight: normal;
-    color: $title-color;
+    color: design.$primary-font;
 
     margin-bottom: .5em;
 }
 .description{
     font-size: 1em;
     font-weight: normal;
-    color: $description-color;
+    color: design.$secondary-font;
 
 }
 .dottsBox{
@@ -56,23 +47,23 @@ $dotts-bg : rgb(58, 58, 58);
     cursor: pointer;
 
     &:hover{
-        background-color: $dotts-bg;
+        background-color: design.$tertiary-bg;
     }
 }
 .dotts{
     font-size: 1.3em;
-    color: $title-color;
+    color: design.$primary-font;
 }
 @mixin input(){
     width: 100%;
     padding: .2em;
 
-    background-color: $dotts-bg;
-    color: $title-color;
+    background-color: design.$tertiary-bg;
+    color: design.$primary-font;
 
-    caret-color: cyan;
+    caret-color: design.$primary-special;
     border: none;
-    border-bottom: 1px solid cyan;
+    border-bottom: 1px solid design.$primary-special;
     outline: none;
 }
 .inputTitle{
