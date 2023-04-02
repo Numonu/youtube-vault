@@ -16,7 +16,6 @@ export function Collection({ order, title }) {
 				className={`${styles.delete} fa-solid fa-delete-left`}
 				onClick={(e) => {
 					e.stopPropagation();
-					alert("Se eliminara la colleccion en el orden" + order);
 					fromContext.deleteCollection(order)
 				}}
 			></i>

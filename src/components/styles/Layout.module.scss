@@ -1,3 +1,4 @@
+@use "./modules/_breakpoints" as bp;
 .layout{
     height: 100vh;
 
@@ -7,4 +8,42 @@
     grid-template-areas: 
     "nav nav"
     "aside body";
+
+     //setup size in childs (childs use em's)
+     font-size: 14px;
+}
+
+
+@media screen and (min-width : bp.$xl) {
+    .layout{
+        grid-template-columns: 330px 1fr;
+        font-size: 16px;
+    }
+}
+@media screen and (min-width : bp.$xxl) {
+    .layout{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width : bp.$md) {
+    .layout{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width : bp.$sm) {
+    .layout{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width : bp.$xs) {
+    .layout{
+        grid-template-columns: 230px 1fr;
+        grid-template-rows: min-content min-content 1fr;
+        grid-template-areas: 
+        "nav nav"
+        "aside aside"
+        "body body";
+        font-size: 8px;
+    }
+    
 }

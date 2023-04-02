@@ -4,10 +4,19 @@ import { Grid } from "../components/Grid";
 import { exampleData } from "../database/data";
 import { AppReducer } from "../Reducers/AppReducer";
 
+let storage;
+if(localStorage["user"]) storage = JSON.parse(localStorage["user"]);
+else storage = exampleData;
+
 export function useApp() {
-	const [data, dispatch] = useReducer(AppReducer(), [...exampleData]);
+	const [data, dispatch] = useReducer(AppReducer(), storage);
 	const [collectionFocus, setCollectionFocus] = useState(0);
-	console.log("Estoy enfocado en el orden : " , collectionFocus);
+
+	useEffect(() => {
+		//save in local storage
+		localStorage["user"] = JSON.stringify(data);
+		console.debug("[!]user data save");
+	} , [data])
 
 	const collections = data[0] &&  data.map((e, i) => (
 		<Cascade.Collection order={i} key={e.id} title={e.collection} />
